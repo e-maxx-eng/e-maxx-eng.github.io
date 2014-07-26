@@ -23,9 +23,36 @@
     </div>
 <h1>How to Contribute</h1>
 
+<h3>Using GitHub</h3>
+
+<p>At least at first stage we are going to collaborate via means of github.</p>
+
+<p>Generated pages are placed at <a href="http://e-maxx-eng.github.io">http://e-maxx-eng.github.io</a>.</p>
+
+<p>And sources (to which you may want to contribute) are <a href="http://github.com/e-maxx-eng/e-maxx-eng">here</a>.</p>
+
+<p>In order to make contribution consider the following steps:</p>
+
+<ol>
+<li>Contact any of <a href="https://github.com/orgs/e-maxx-eng/people">admins</a> and explain what
+article you want to add or improve. Get the approval.</li>
+<li>Fork <a href="https://github.com/e-maxx-eng/e-maxx-eng">source repository</a> and <code>clone</code> it to your
+local machine.</li>
+<li>Add or modify files in <code>src</code> subfolder in Markdown format.</li>
+<li>Run <code>compile.bat</code> or <code>compile.sh</code> (you'll need <code>PHP 5.3+</code> interpreter installed) and
+verify your changes opening site locally in the browser (you'll see the link in console).</li>
+<li>Repeat steps <code>3-4</code> until all is well.</li>
+<li>Use <code>commit</code> and <code>push</code> commands to update your copy of repository at github.</li>
+<li>Use <code>pull-request</code> feature to send the request for your changes to be merged.</li>
+</ol>
+
+<p>Please kindly refer to manuals on using <code>git</code> and <code>github</code> anywhere over internet.</p>
+
 <h3>Source format</h3>
 
-<p>We use <strong>Markdown</strong> for source texts and convert them automatically with the help of small tool.</p>
+<p>We use <a href="https://daringfireball.net/projects/markdown">Markdown</a> for source texts and
+convert them automatically with the help of small tool.
+Some <a href="https://michelf.ca/projects/php-markdown/extra/">extra</a> features also could be used.</p>
 
 <p>If you have <strong>PHP</strong> installed, you can run <code>compile.bat</code> or <code>compile.sh</code> file in the root folder - it will parse <code>src</code>
 directory and convert all the files inside into HTML documents under the new folder <code>target</code>.</p>

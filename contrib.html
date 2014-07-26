@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+    <title>For Contributors - E-Maxx Algorithms</title>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+    <script type="text/javascript"
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <link rel="stylesheet" href="./css/common.css"/>
+</head>
+<body>
+<div id="container">
+<div id="navbar">
+<a href="./index.html">Home</a>
+</div>
+<h1>How to Contribute</h1>
+
+<h3>Source format</h3>
+
+<p>We use <strong>Markdown</strong> for source texts and convert them automatically with the help of small tool.</p>
+
+<p>If you have <strong>PHP</strong> installed, you can run <code>compile.bat</code> or <code>compile.sh</code> file in the root folder - it will parse <code>src</code>
+directory and convert all the files inside into HTML documents under the new folder <code>target</code>.</p>
+
+<p>Formulas could be added thanks to <code>MathJax</code> library. Simply use <code>TeX</code> expressions inside single or double dollar marks <code>$</code>, for
+example:</p>
+
+<p>here is an inline equation: $P \ne NP$</p>
+
+<p>And here is the formula in the separate block:</p>
+
+<p>$$E = mc^{2}$$</p>
+
+</div>
+</body>
+</html>

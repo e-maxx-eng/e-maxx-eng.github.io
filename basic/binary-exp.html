@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+    <base href="http://e-maxx-eng.github.io/"/>
+    <title>Binary Exponentiation - E-Maxx Algorithms</title>
+    <script src="./js/jq.js"></script>
+    <script src="./js/common.js"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+    <script type="text/javascript"
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <link rel="stylesheet" href="./css/common.css"/>
+</head>
+<body>
+<div id="container">
+    <div id="navbar">
+        <span id="title">
+            MAXimal
+        </span>
+        <span id="menu">
+            <a href="./index.html">Home</a>
+        </span>
+    </div>
+<h1>Binary Exponentiation</h1>
+
+<p>Raising <code>a</code> to the power of <code>b</code> is expressed naively as multiplication of <code>a</code> taken <code>b</code> times:
+$a^{b} = a \cdot a \cdot \ldots \cdot a$.</p>
+
+<p>However this approach is not practical for large <code>a</code> or <code>b</code>. <strong>Binary exponentiation</strong> is a
+simple trick. We know from school that:</p>
+
+<p>$$a^{b+c} = a^{b} \cdot a^{c} \qquad and \qquad a^{2b} = a^{b} \cdot a^{b} = (a^{b})^{2}$$</p>
+
+<p>Let us then write <code>b</code> in binary system, for example:</p>
+
+<p>$$3^{11} = 3^{1011_{2}} = 3^{8} \cdot 3^{2} \cdot 3^{1}$$</p>
+
+<p>So we need only find sequence of squared numbers:</p>
+
+<p>$3^{1} = 3$<br />
+$3^{2} = (3^{1})^{2} = 3 \cdot 3 = 9$<br />
+$3^{4} = (3^{2})^{2} = 9 \cdot 9 = 81$<br />
+$3^{8} = (3^{4})^{2} = 81 \cdot 81 = 6561$</p>
+
+<p>And multiply three of them (skipping $3^{4}$ because corresponding bit in <code>b</code> is zero):
+$\quad 3^{11} = 6561 \cdot 9 \cdot 3 = 177147$</p>
+
+<p>This approach has important applications in many tasks not related to arithmetics, since it
+can be used with any operations having the property of <strong>associativity</strong>:</p>
+
+<p>$$(X \cdot Y) \cdot Z = X \cdot (Y \cdot Z)$$</p>
+
+<p>Most obviously this applies to modular multiplication, then to multiplication of matrices and
+to other problems which we will discuss below. As another example - in Ancient Egypt the
+same approach was used for simple multiplication (by summing up members of the sequence
+<code>a</code>, <code>2a</code>, <code>4a</code>, <code>8a</code> according to binary representation of multiplier <code>b</code>) -
+and it is still used inside CPUs of contemporary computers!</p>
+
+<h3>Algorithm</h3>
+
+<p>The approach described above could be easily implemented with a single loop.</p>
+
+<p><strong>Non-recursive</strong> approach in Python 3 <span class="toggle-code">Show/Hide</span>:</p>
+
+<pre><code>def binpow(a, b):
+    res = 1
+    cur = a
+    while b &gt; 0:
+        if b &amp; 1:
+            res *= cur
+        cur *= cur
+        b &gt;&gt;= 1
+    return res
+</code></pre>
+
+<p>This approach builds the result starting from smallest degrees of <code>a</code>. If we use recursion
+instead of loop we can work in "inverse" direction, starting from largest degrees and dividing
+<code>b</code> in two at each step.</p>
+
+<p><strong>Recursive</strong> approach in Python 3 <span class="toggle-code">Show/Hide</span>:</p>
+
+<pre><code>def binpow(a, b):
+    if b == 1:
+        return a
+    res = binpow(a, b // 2)
+    return res * res * (a if b % 2 != 0 else 1)
+</code></pre>
+
+<p>We can explain this last approach mathematically:<br />
+$a^{b} = (a^{b/2})^2 \quad$ for even <code>b</code>,<br />
+$a^{b} = (a^{(b-1)/2})^2 \cdot a \quad$ for odd <code>b</code>,<br />
+$a^{1} = a$.</p>
+
+    <div id="footer">
+    (c) 2014 translation by <a href="http://github.com/e-maxx-eng">http://github.com/e-maxx-eng</a>
+    </div>
+</div>
+</body>
+</html>

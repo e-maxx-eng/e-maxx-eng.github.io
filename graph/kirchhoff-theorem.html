@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+    <base href="http://e-maxx-eng.github.io/"/>
+    <title>Kirchhoff theorem  - E-Maxx Algorithms</title>
+    <script src="./js/jq.js"></script>
+    <script src="./js/common.js"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+    <script type="text/javascript"
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <link rel="stylesheet" href="./css/common.css"/>
+
+    <!-- highlightjs for code highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/xcode.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- end highlightjs -->
+</head>
+<body>
+<div id="container">
+    <div id="navbar">
+        <span id="title">
+            MAXimal
+        </span>
+        <span id="menu">
+            <a href="./index.html">Home</a>
+        </span>
+    </div>
+<h1>Kirchhoff theorem. Finding the number of spanning tree</h1>
+
+<p><code>Problem</code>: Given a connected undirected graph. Multiple edges are allowed. Count the number of different spanning trees of the graph.</p>
+
+<p>Kirchhoff proved the following formula in 1847.</p>
+
+<h2>Kirchhoff theorem</h2>
+
+<p>Let <code>G</code> be the adjacency matrix of the graph. If there are multiple edges between nodes, then $G(u, v)$ is equal to the number of edges between $u$ and $v$. Let <code>A</code> be a diagonal matrix, such that $A(u, u)$ is equal to the degree of vertex u.</p>
+
+<p>Let $R = A - G$, then according to Kirchhoff theorem, all the cofactors of this matrix are equal, and equal to the number of spanning trees of the graph. So, you can, delete the last row and last column of the matrix, and the absolute value of the determinant will be equal to the number of spanning trees.</p>
+
+<p>The determinant of the matrix can be found in $O(N^3)$ by using the Gaussian elimination method.</p>
+
+<p>The proof of this theorem is quite difficult and is not presented here.</p>
+
+<h2>Relationship with Kirchhoff laws in electrical circuit</h2>
+
+<p>(this section is not yet translated)</p>
+
+    <div id="footer">
+    (c) 2014 translation by <a href="http://github.com/e-maxx-eng">http://github.com/e-maxx-eng</a>
+    </div>
+</div>
+</body>
+</html>
